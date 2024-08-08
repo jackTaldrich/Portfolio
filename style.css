@@ -48,6 +48,10 @@ a:visited {
     text-decoration: none;
 }
 
+h1 {
+    color: #6DA34D;
+}
+
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Montserrat', sans-serif;
     color: #212529;
@@ -123,7 +127,7 @@ button {
     grid-column: 1 / -1;
     font-family: 'Montserrat', sans-serif;
     font-size: 48px;
-    color: #212529;
+    color: #6DA34D;
     margin: 40px 0 0;
     text-align: left;
 }
@@ -146,6 +150,7 @@ button {
     border-radius: 2%;
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
     margin-right: 20px;
+    object-fit: contain;
 }
 
 .grid-item.reverse img {
@@ -154,9 +159,15 @@ button {
 }
 
 .grid-item .text-content {
-    font-size: 24px;
-    color: #333;
+    font-size: 40px;
     max-width: 40%;
+    overflow-y: auto;
+    border-style: none none dotted dotted;
+    border-color: #548687;
+}
+
+.grid-item.reverse .text-content {
+    border-style: none dotted dotted none;
 }
 
 .grid-item .date {
@@ -165,7 +176,7 @@ button {
     position: absolute;
     bottom: 0;
     left: 0;
-    width: 60%;
+    width: 60%; 
     text-align: left;
 }
 
@@ -194,4 +205,28 @@ button {
 .grid-item.double .text-content {
     max-width: 40%;
     margin-right: 15px;
+}
+
+/* Mobile devices */
+@media (max-width: 576px) {
+    body {
+        font-size: 14px;
+    }
+
+    body {
+        padding: 0 !important;
+
+    }
+
+    .grid-item .text-content {
+        font-size: 10px;
+    }
+
+    .grid-heading {
+        font-size: 24px;
+    }
+
+    .grid-item .date {
+        font-size: 12px;
+    }
 }

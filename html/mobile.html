@@ -4,12 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MobileBlock</title>
+
+    <!-- Check if device is not mobile and send those to the portfolio page -->
     <script>
         var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
         if (!isMobile) {
             window.location.href = "/html/portfolio.html";
         }
     </script>
+
+    <!-- 404 redirect script -->
+    <script src="../js/404redirect.js"></script>
 </head>
 <body>
     <h1 style="font-size: 100px">This website is not designed for mobile devices and may not work correctly. <a href="/html/portfolio.html">Would you like to continue anyways?</a></h1>
