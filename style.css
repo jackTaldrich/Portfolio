@@ -49,10 +49,14 @@ a:visited {
 }
 
 h1 {
-    color: #6DA34D;
+    color: #56445D;
+    font-size: 70px;
+    margin: 0;
+    padding: 5px;
+    font-family: 'Montserrat', sans-serif;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h2, h3, h4, h5, h6 {
     font-family: 'Montserrat', sans-serif;
     color: #212529;
     margin: 0;
@@ -67,6 +71,12 @@ hr {
     margin-bottom: 50px;
     width: 200px;
     padding: 0;
+}
+
+hr.hr2 {
+    border-top: 5px dotted #548687;
+    width: 90%;
+    margin: auto;
 }
 
 button {
@@ -106,6 +116,7 @@ button {
     height: 100%;
     background-color: #f0f0f0;
     z-index: 1000;
+    pointer-events: none;
 }
 
 .scroll-indicator {
@@ -114,6 +125,26 @@ button {
     background-color: #548687;
     position: absolute;
     top: 0;
+    z-index: 1010;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgba(136, 136, 136, 0.5);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(136, 136, 136, 0.7);
+}
+
+
+body, #custom-scrollbar {
+    scrollbar-color: rgba(136, 136, 136, 0.5) transparent;
+    scrollbar-width: thin;
 }
 
 .portfolio-grid {
@@ -161,6 +192,7 @@ button {
 .grid-item .text-content {
     font-size: 40px;
     max-width: 40%;
+    padding-left: 5px;
     overflow-y: auto;
     border-style: none none dotted dotted;
     border-color: #548687;
@@ -168,6 +200,7 @@ button {
 
 .grid-item.reverse .text-content {
     border-style: none dotted dotted none;
+    padding-right: 5px;
 }
 
 .grid-item .date {
@@ -207,7 +240,7 @@ button {
     margin-right: 15px;
 }
 
-/* Mobile devices */
+
 @media (max-width: 576px) {
     body {
         font-size: 14px;

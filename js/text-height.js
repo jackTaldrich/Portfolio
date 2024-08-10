@@ -3,19 +3,28 @@ function adjustTextHeight() {
 
     gridItems.forEach(item => {
         const img = item.querySelector('img');
-        const textContent = item.querySelector('.text-content');
+        const textContents = item.querySelectorAll('.text-content');
 
-        if (img && textContent) {
-            // Apply the height of the image to the text content
-            textContent.style.maxHeight = img.clientHeight + 'px';
+        if (img && textContents.length > 0) {
+            // Wait for the image to fully load before adjusting the text height
+            img.onload = function() {
+                textContents.forEach(textContent => {
+                    textContent.style.maxHeight = img.clientHeight + 'px';
+                });
+            };
+
+            // For cached images, or if the image is already loaded
+            if (img.complete) {
+                textContents.forEach(textContent => {
+                    textContent.style.maxHeight = img.clientHeight + 'px';
+                });
+            }
         }
     });
 }
 
-// Adjust text height when the page loads
 document.addEventListener("DOMContentLoaded", function() {
     adjustTextHeight();
 
-    // Re-adjust text height whenever the window is resized
     window.addEventListener('resize', adjustTextHeight);
 });
