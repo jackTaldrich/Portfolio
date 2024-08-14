@@ -81,7 +81,7 @@ function applyStylesBasedOnImage(imageAlt) {
             break;
         case 'homemade_pcb':
             textContent = 'My CNC machine not only mills fine-detail products on a variety of materials but also fabricates printed circuit boards (PCBs). A project I worked on called the "Rabbler" used a custom-designed circuit board.\
-            I was able to successfully mill this board with tolerances with a tolerance of less than 0.05mm. I scavenged a UV Curing device and wired it with my bench power supply to harden a finishing layer on top of the copper,\
+            I was able to successfully mill this board with tolerances of less than 0.05mm. I scavenged a UV Curing device and wired it with my bench power supply to harden a finishing layer on top of the copper,\
             which makes it easier to solder and gives the board its green color.';
             break;
         case 'laser_heatsink':

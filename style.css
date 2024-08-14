@@ -225,7 +225,7 @@ body, #custom-scrollbar {
 
 .grid-item .date {
     font-size: 20px;
-    color: #888;
+    color: #000;
     position: absolute;
     bottom: 0;
     left: 0;
@@ -251,7 +251,7 @@ body, #custom-scrollbar {
 }
 
 .grid-item.double img {
-    width: 40%;
+    width: 25vw;
     margin-right: 15px;
 }
 
@@ -276,7 +276,7 @@ body, #custom-scrollbar {
 
 .other-grid img:hover {
     cursor: pointer;
-    transform: scale(1.05);
+    transform: scale(1.15);
     transition: transform 0.3s;
 }
 
@@ -323,12 +323,12 @@ body, #custom-scrollbar {
 .x {
     position: fixed;
     top: 10px;
-    right: 10px;
-    transform-origin: top right;
+    left: 10px;
+    transform-origin: top left;
     transform: scale(0.2);
     cursor: pointer;
     z-index: 12;
-    filter: invert(51%) sepia(99%) saturate(335%) hue-rotate(148deg) brightness(95%) contrast(102%);
+    /* filter: invert(51%) sepia(99%) saturate(335%) hue-rotate(148deg) brightness(95%) contrast(102%); */
 }
 
 @media (max-width: 576px) {
