@@ -30,6 +30,7 @@ body {
     background-color: #f9f9f9;
     margin: 0; 
     padding: 0;
+    overflow-x: hidden;
 }
 
 html, body {
@@ -54,6 +55,12 @@ h1 {
     margin: 0;
     padding: 5px;
     font-family: 'Montserrat', sans-serif;
+    position: unset;
+}
+
+h2 {
+    position: relative;
+    left: 130px;
 }
 
 h2, h3, h4, h5, h6 {
@@ -240,15 +247,43 @@ body, #custom-scrollbar {
     margin-right: 15px;
 }
 
+.other-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+    padding: 20px;
+}
+
+.other-grid .grid-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.other-grid img:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+    transition: transform 0.3s;
+}
+
+.other-grid img {
+    width: 12vw;
+    height: 12vw;
+    object-fit: cover;
+    border-radius: 10px;
+}
 
 @media (max-width: 576px) {
     body {
         font-size: 14px;
+        padding: 0 !important;
     }
 
-    body {
-        padding: 0 !important;
-
+    h2 {
+        font-size: 20px;
+        position: relative;
+        left: 6vw;
     }
 
     .grid-item .text-content {

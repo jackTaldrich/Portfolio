@@ -7,12 +7,7 @@ C5E99B variation 2 of base 1
 -->
 
 <!--
-must fix dates on the other ones i dont have internet so i cant right now nightmare nightmare nightmare
-make sure text scales appropriately. try setting zoom to literally anything but 100% and you see what I mean
-see about moving the header to the middle not left. i want it to be more noticable bc the image takes up too much attention
-implement color scheme from before ^^L2-6
-the image shadow overlaps the date text and it is a little annoying also idk how I like it being aligned to a filet/rounded edge
-scroll bar thing does NOT work
+    make forwarding for each image ie website.com/home?=image1 and style it nice
 -->
 
 <!DOCTYPE html>
@@ -39,6 +34,9 @@ scroll bar thing does NOT work
 
     <!-- Script to alter the total text height to be in sync with the image -->
     <script src="../js/text-height.js" defer></script>
+
+    <!-- Makes the images clickable for more information -->
+    <script src="../js/image-click.js" defer></script>
 
     <!-- Custom scrollbar -->
     <script src="../js/scrollbar.js" defer></script>
@@ -173,10 +171,27 @@ scroll bar thing does NOT work
         </div>
     </div>
     <hr class="hr2" style="margin-top: 50px;">
-    <h1>Other Endeavours</h1>
+    <h2>Other Endeavours</h2>
     <hr class="hr2">
-    <div class="portfolio-grid">
-
+    <div class="other-grid">
+        <div class="grid-item">
+            <img src="../images/others/computer.JPEG" alt="computer">
+        </div>
+        <div class="grid-item">
+            <img src="../images/others/morse_code_parser.JPEG" alt="morse_code_parser">
+        </div>
+        <div class="grid-item">
+            <img src="../images/others/better_emp.JPEG" alt="better_emp">
+        </div>
+        <div class="grid-item">
+            <img src="../images/others/green_fire.jpg" alt="green_fire">
+        </div>
+        <div class="grid-item">
+            <img src="../images/others/homemade_pcb.jpeg" alt="homemade_pcb">
+        </div>
+        <div class="grid-item">
+            <img src="../images/others/laser_heatsink.jpeg" alt="laser_heatsink">
+        </div>
     </div>
     <div id="custom-scrollbar">
         <div class="scroll-indicator"></div>
