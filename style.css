@@ -35,6 +35,8 @@ body {
 
 html, body {
     height: 100%;
+    width: 100%;
+    overflow-x: hidden;
     margin: 0;
     padding: 0;
 }
@@ -96,6 +98,17 @@ button {
     padding: 10px 20px;
     cursor: pointer;
     transition: background-color 0.3s;
+}
+
+#dark-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 2;
+    display: none;
 }
 
 #title {
@@ -197,7 +210,7 @@ body, #custom-scrollbar {
 }
 
 .grid-item .text-content {
-    font-size: 40px;
+    font-size: 2vw;
     max-width: 40%;
     padding-left: 5px;
     overflow-y: auto;
@@ -274,6 +287,50 @@ body, #custom-scrollbar {
     border-radius: 10px;
 }
 
+.highlight-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    justify-items: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80vw;
+    height: auto;
+    z-index: 10;
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    gap: 20px;
+}
+
+.highlighted-image {
+    width: 40vw;
+    height: 40vw;
+    object-fit: cover;
+}
+
+.highlighted-text {
+    max-width: 40vw;
+    padding: 0 1rem;
+    z-index: 11;
+    text-align: left;
+    font-size: 2.5rem;
+    line-height: 1.6;
+}
+
+.x {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    transform-origin: top right;
+    transform: scale(0.2);
+    cursor: pointer;
+    z-index: 12;
+    filter: invert(51%) sepia(99%) saturate(335%) hue-rotate(148deg) brightness(95%) contrast(102%);
+}
+
 @media (max-width: 576px) {
     body {
         font-size: 14px;
@@ -287,7 +344,7 @@ body, #custom-scrollbar {
     }
 
     .grid-item .text-content {
-        font-size: 10px;
+        font-size: 1vw;
     }
 
     .grid-heading {
