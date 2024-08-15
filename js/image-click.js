@@ -112,7 +112,8 @@ function applyStylesBasedOnImage(imageAlt) {
             Είμαι σε βασικό επίπεδο, but it is a productive way that I like to spend my time.';
             break;
         case 'guitar':
-            textContent = 'Not filled out yet';
+            textContent = 'I started playing guitar at the end of my Junior year and consistently practiced for at least an hour daily. Guitar became one of my favorite hobbies,\
+            as I am always finding new music and learning how to play it. --add link for my playing--';
             // textContent = 'Here is a link to me playing: <a href="https://www.youtube.com/watch?v=3JZ_D9QJ9Zc" target="_blank">playing</a> things';
             break;
         default:

@@ -2,6 +2,10 @@ function adjustTextHeight() {
     const gridItems = document.querySelectorAll('.grid-item');
 
     gridItems.forEach(item => {
+        if (item.classList.contains('double') && window.innerWidth <= 576) {
+            return;
+        }
+
         const img = item.querySelector('img');
         const textContents = item.querySelectorAll('.text-content');
 

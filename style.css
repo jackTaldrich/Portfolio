@@ -224,7 +224,7 @@ body, #custom-scrollbar {
 }
 
 .grid-item .date {
-    font-size: 20px;
+    font-size: 1vw;
     color: #000;
     position: absolute;
     bottom: 0;
@@ -244,6 +244,7 @@ body, #custom-scrollbar {
     flex-direction: row;
     align-items: flex-start;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 .grid-item.double > * {
@@ -259,6 +260,28 @@ body, #custom-scrollbar {
     max-width: 40%;
     margin-right: 15px;
     font-size: 1.5vw;
+}
+
+.grid-item.triple {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+}
+
+.grid-item.triple img {
+    flex: 1 1 auto;
+    max-width: 25vw;
+}
+
+.grid-item.triple .text-content {
+    flex: 2 1 0;
+    font-size: 1.5vw;
+}
+
+.grid-item.triple .date {
+    flex: 1 1 100%;
+    text-align: left;
 }
 
 .other-grid {
@@ -344,15 +367,43 @@ body, #custom-scrollbar {
         left: 6vw;
     }
 
-    .grid-item .text-content {
-        font-size: 1vw;
-    }
-
     .grid-heading {
         font-size: 24px;
     }
 
     .grid-item .date {
-        font-size: 12px;
+        font-size: 2.5vw;
+    }
+
+    .grid-item.double {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .grid-item.double img,
+    .grid-item.double .text-content {
+        max-width: 100%;
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 15px;
+    }
+
+    .grid-item.double .text-content {
+        font-size: 4vw;
+    }
+
+    .grid-item.double img {
+        width: 100vw;
+        height: 100vw;
+        object-fit: cover; 
+        object-position: center;       
+    }
+
+    .grid-item.triple {
+        gap: 0px;
+    }
+
+    .grid-item.triple .text-content {
+        font-size: 2vw;
     }
 }
