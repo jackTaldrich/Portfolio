@@ -6,14 +6,12 @@ function adjustTextHeight() {
         const textContents = item.querySelectorAll('.text-content');
 
         if (img && textContents.length > 0) {
-            // Wait for the image to fully load before adjusting the text height
             img.onload = function() {
                 textContents.forEach(textContent => {
                     textContent.style.maxHeight = img.clientHeight + 'px';
                 });
             };
 
-            // For cached images, or if the image is already loaded
             if (img.complete) {
                 textContents.forEach(textContent => {
                     textContent.style.maxHeight = img.clientHeight + 'px';

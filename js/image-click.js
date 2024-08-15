@@ -4,6 +4,19 @@ document.addEventListener('DOMContentLoaded', function() {
         return urlParams.get(param);
     }
 
+    function adjustTextHeight() {
+        const highlightedImage = document.querySelector('.highlighted-image');
+        const highlightedText = document.querySelector('.highlighted-text');
+
+        if (highlightedImage && highlightedText) {
+            const imageHeight = highlightedImage.offsetHeight;
+            highlightedText.style.maxHeight = imageHeight + 'px';
+            highlightedText.style.overflowY = 'auto';
+        }
+    }
+
+    adjustTextHeight();
+
     const imageAlt = getQueryParam('image');
     console.log('Image alt from URL:', imageAlt);
 
@@ -19,8 +32,12 @@ document.addEventListener('DOMContentLoaded', function() {
             const newUrl = '?image=' + imageAlt;
             history.pushState(null, '', newUrl);
             applyStylesBasedOnImage(imageAlt);
+
+            adjustTextHeight();
         });
     });
+
+    window.addEventListener('resize', adjustTextHeight);
 
     const x = document.querySelector('.x');
 
