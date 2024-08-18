@@ -327,7 +327,8 @@ body, #custom-scrollbar {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 80vw;
+    width: 90vw !important;
+    height: 80vh !important;
     height: auto;
     z-index: 10;
     background-color: #e5e5e5;
@@ -345,7 +346,7 @@ body, #custom-scrollbar {
 
 .highlighted-text {
     max-width: 40vw;
-    padding: 0 1rem;
+    padding: 0;
     z-index: 11;
     text-align: left;
     font-size: 1.5vw;
@@ -459,7 +460,7 @@ body, #custom-scrollbar {
     }
 
     .grid-item.double .text-content {
-        font-size: 4vw;
+        font-size: 1rem;
     }
 
     .grid-item.double img {
@@ -510,17 +511,16 @@ body, #custom-scrollbar {
 
     .highlighted-text {
         max-width: 80vw;
-        max-height: 60vw !important;
-        font-size: 4vw;
+        max-height: 40vh !important;
+        font-size: 1rem;
         overflow-y: auto;
-       
         box-sizing: border-box;
     }
     
     .x {
         width: 10vw;
         left: auto;
-        right: 10px;
+        transform: translate(-25%, 25%);
     }
 
     .other-grid {
@@ -534,5 +534,16 @@ body, #custom-scrollbar {
 
     #custom-scrollbar {
         display: none;
+    }
+}
+
+@media (max-height: 826) {
+    .highlighted-image {
+        width: 60vw !important;
+        height: 60vw !important;
+    }
+
+    .highlighted-text {
+        font-size: .8rem;
     }
 }
