@@ -321,7 +321,7 @@ body, #custom-scrollbar {
 .highlight-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    align-items: center;
+    align-items: start;
     justify-items: center;
     position: fixed;
     top: 50%;
@@ -348,7 +348,7 @@ body, #custom-scrollbar {
     padding: 0 1rem;
     z-index: 11;
     text-align: left;
-    font-size: 2vw;
+    font-size: 1.5vw;
     line-height: 1.6;
 }
 
@@ -356,7 +356,7 @@ body, #custom-scrollbar {
     position: fixed;
     top: 0;
     right: 0;
-    transform: translate(25%, -25%);
+    transform: translate(50%, -50%);
     width: 3.5vw;
     height: auto;
     cursor: pointer;
