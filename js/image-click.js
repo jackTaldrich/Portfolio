@@ -1,4 +1,17 @@
 document.addEventListener('DOMContentLoaded', function() {
+    function showHighlightGrid() {
+        const highlightGrid = document.querySelector('.highlight-grid');
+        highlightGrid.style.display = 'grid';
+
+        const x = document.querySelector('.highlight-grid .x');
+        if (x) {
+            x.addEventListener('click', function() {
+                console.log('x clicked'); // Debugging: Check if the event listener is triggered
+                xClick();
+            });
+        }
+    }
+
     function getQueryParam(param) {
         const urlParams = new URLSearchParams(window.location.search);
         return urlParams.get(param);
@@ -29,6 +42,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (imageAlt) {
         applyStylesBasedOnImage(imageAlt);
+        showHighlightGrid(); // Show the grid and attach the listener to `.x` when an image is selected
     }
 
     const images = document.querySelectorAll('.other-grid img');
@@ -39,6 +53,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const newUrl = '?image=' + imageAlt;
             history.pushState(null, '', newUrl);
             applyStylesBasedOnImage(imageAlt);
+            showHighlightGrid(); // Show the grid and attach the listener to `.x` after an image is clicked
 
             adjustTextHeight();
         });
@@ -46,19 +61,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
     window.addEventListener('resize', adjustTextHeight);
 
-    const x = document.querySelector('.other-grid .x');
-
-    if (x) {
-        x.addEventListener('click', function() {
-            xClick();  
-        });
-    }
-});
-
-document.addEventListener('keydown', function(event) {
-    if (event.key === 'Escape') {
-        xClick();
-    }
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape') {
+            xClick();
+        }
+    });
 });
 
 function applyStylesBasedOnImage(imageAlt) {
@@ -113,6 +120,6 @@ function getTextContentMap() {
         'npi': 'I have been taught Spanish since 2nd grade, and my Spanish career extended to my Junior year in high school when I took AP Spanish. I am confident in my reading and writing ability and can speak and hear basic sentences. During the summer before my Senior year, I visited Greece and discovered the beauty of the Greek language. Over the summer, I started learning Greek, as I feel it is a great way to write and document my life. Είμαι σε βασικό επίπεδο, but it is a productive way that I like to spend my time.',
         'guitar': 'I started playing guitar at the end of my Junior year and consistently practiced for at least an hour daily. Guitar became one of my favorite hobbies, as I am always finding new music and learning how to play it. --add link for my playing--',
         'rabbler': 'On a show, I saw a device that could obscure voices recorded by a bug by using random static on all frequencies louder than the voice. I looked up the device online only to find that they cost hundreds of dollars. Since the concept was simple enough, I built it for much cheaper. With some help, I wrote code in C that uses the logic <a href="https://en.wikipedia.org/wiki/Linear-feedback_shift_register" target="_blank">here</a> to make pseudorandom noise. I designed a circuit board and then installed the components on it. It worked, but I still need to create a case for it and use a stronger speaker.',
-        'game': 'game'
+        'game': 'For my final project in my game design class, I combined my knowledge of electronics and programming to create a game that shocks the player whenever they take damage. On the final day of school, my friend and I presented our game to not just the class but the school. We set up a booth where people could try the game and see if they could beat it; unfortunately <a href="https://youtube.com/shorts/0w70WdpyoYQ?feature=share" target="_blank">no one did.</a>',
     };
 }

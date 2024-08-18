@@ -356,8 +356,8 @@ body, #custom-scrollbar {
     position: fixed;
     top: 10px;
     left: 10px;
-    transform-origin: top left;
-    transform: scale(0.2);
+    width: 5vw;
+    height: auto;
     cursor: pointer;
     z-index: 12;
 }
@@ -413,4 +413,60 @@ body, #custom-scrollbar {
     .grid-item.triple .text-content {
         font-size: 2vw;
     }
+
+    .highlight-grid {
+        grid-template-columns: 1fr;
+        width: 90vw;
+        height: auto;
+    }
+
+    .highlighted-image {
+        width: 80vw;
+        height: 80vw;
+    }
+
+    .highlighted-text {
+        max-width: 80vw;
+        font-size: 4vw;
+    }
+    
+    .x {
+        width: 10vw;
+    }
 }
+
+/* 
+.highlight-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    justify-items: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80vw;
+    height: auto;
+    z-index: 10;
+    background-color: #e5e5e5;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    gap: 20px;
+}
+
+.highlighted-image {
+    width: 40vw;
+    height: 40vw;
+    object-fit: cover;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.highlighted-text {
+    max-width: 40vw;
+    padding: 0 1rem;
+    z-index: 11;
+    text-align: left;
+    font-size: 2vw;
+    line-height: 1.6;
+}
+*/
