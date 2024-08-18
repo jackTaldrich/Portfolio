@@ -361,6 +361,10 @@ body, #custom-scrollbar {
     height: auto;
     cursor: pointer;
     z-index: 12;
+    -webkit-user-select: none;
+    -moz-user-select: none;   
+    -ms-user-select: none;    
+    user-select: none;        
 }
 
 @media (max-width: 576px) {
@@ -496,7 +500,7 @@ body, #custom-scrollbar {
     .highlight-grid {
         grid-template-columns: 1fr;
         width: 90vw;
-        height: auto;
+        height: 90vh;
     }
 
     .highlighted-image {
@@ -506,7 +510,11 @@ body, #custom-scrollbar {
 
     .highlighted-text {
         max-width: 80vw;
+        max-height: 60vw !important;
         font-size: 4vw;
+        overflow-y: auto;
+       
+        box-sizing: border-box;
     }
     
     .x {
