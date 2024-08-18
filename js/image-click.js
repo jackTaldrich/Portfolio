@@ -5,14 +5,21 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function adjustTextHeight() {
-        const highlightedImage = document.querySelector('.highlighted-image');
-        const highlightedText = document.querySelector('.highlighted-text');
+        const otherGridItems = document.querySelectorAll('.other-grid .grid-item');
 
-        if (highlightedImage && highlightedText) {
-            const imageHeight = highlightedImage.offsetHeight;
-            highlightedText.style.maxHeight = imageHeight + 'px';
-            highlightedText.style.overflowY = 'auto';
-        }
+        otherGridItems.forEach(item => {
+            const img = item.querySelector('img');
+            const textContents = item.querySelectorAll('.text-content');
+
+            if (img && textContents.length > 0) {
+                textContents.forEach(textContent => {
+                    textContent.style.maxHeight = 'none'; // Reset before measuring
+                    if (textContent.scrollHeight > img.clientHeight) {
+                        textContent.style.maxHeight = img.clientHeight + 'px';
+                    }
+                });
+            }
+        });
     }
 
     adjustTextHeight();
@@ -39,11 +46,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
     window.addEventListener('resize', adjustTextHeight);
 
-    const x = document.querySelector('.x');
+    const x = document.querySelector('.other-grid .x');
 
-    x.addEventListener('click', function() {
-        xClick();  
-    });
+    if (x) {
+        x.addEventListener('click', function() {
+            xClick();  
+        });
+    }
 });
 
 document.addEventListener('keydown', function(event) {
@@ -57,17 +66,16 @@ function applyStylesBasedOnImage(imageAlt) {
     const highlightGrid = document.querySelector('.highlight-grid');
     const highlightedImage = document.querySelector('.highlighted-image');
     const highlightedText = document.querySelector('.highlighted-text');
+    const textContentMap = getTextContentMap();
 
-    if (!darkOverlay || !highlightGrid || !highlightedImage || !highlightedText) {
+    if (!darkOverlay || !highlightGrid || !highlightedImage || !highlightedText || !textContentMap) {
         return;
     }
 
-    const imgElement = document.querySelector('img[alt="' + imageAlt + '"]');
+    const imgElement = document.querySelector('.other-grid img[alt="' + imageAlt + '"]');
     if (!imgElement) {
         return;
     }
-
-    disableLowZIndexSelection();
 
     document.body.style.overflow = 'hidden';
     darkOverlay.style.display = 'block';
@@ -76,63 +84,9 @@ function applyStylesBasedOnImage(imageAlt) {
     highlightedImage.src = imgElement.src;
     highlightedImage.alt = imageAlt;
 
-    let textContent;
-    switch (imageAlt) {
-        case 'computer':
-            textContent = 'For Christmas in middle school, I got an Alienware computer. It worked well for a few years but soon needed better equipment to run different programs.\
-            In my Sophomore year of high school, I took on the challenge of ordering parts and building a computer. I had a lot of trouble installing everything, but after around two weeks of trial and error,\
-            I had a fully functional PC equipped with powerful--but upgradeable--parts.';
-            break;
-        case 'morse_code_parser':
-            textContent = 'During my childhood, I was interested in cryptography. I learned Morse code and some other notable ciphers like Caesar, Pigpen, etc.\
-            I thought it would be fun to communicate in Morse code with my friends, so I designed and programmed a circuit using an Arduino that could do it. The device is simple: it uses a button connected to an analog input on the Arduino to detect a press. It then processes these inputs with timing logic to distinguish between dots and dashes, mapping them to letters using a dictionary and printing the corresponding characters.';
-            break;
-        case 'better_emp':
-            textContent = 'After a year since I made it, I needed to build a better EMP gun. My friend came over and gave me an old Nerf gun to use.\
-            Instead of using a puny bug zapper to generate the pulses, I used a dedicated high-voltage generator that could provide much stronger pulses.\
-            The device uses a coil with more windings, a better battery, and a more stable spark gap that does not misalign over time.';
-            break;
-        case 'green_fire':
-            textContent = 'Another passion of mine is chemistry. I saw a video of someone making \'green fire\' online and felt I had to try it.\
-            The reaction uses methanol and boric acid to form trimethyl borate and water: 3CH3OH + B(OH)3 -> B(OCH3)3 + 3H2O. The result is a stable (but flammable) liquid that, when lit, makes a very dim green fire. ';
-            break;
-        case 'homemade_pcb':
-            textContent = 'My CNC machine not only mills fine-detail products on a variety of materials but also fabricates printed circuit boards (PCBs). A project I worked on called the "Rabbler" used a custom-designed circuit board.\
-            I was able to successfully mill this board with tolerances of less than 0.05mm. I scavenged a UV Curing device and wired it with my bench power supply to harden a finishing layer on top of the copper,\
-            which makes it easier to solder and gives the board its green color.';
-            break;
-        case 'laser_heatsink':
-            textContent = 'My laser diode is very inefficient. Around half of the total energy supplied to the laser is emitted as heat. Because of this, after only 20 seconds, the laser starts to burn up and is dangerously hot.\
-            To slow the laser\'s increase in temperature, I designed a custom heatsink to fit it. I milled the heatsink on my CNC machine out of aluminum because of its heat transfer, thermal capacity, cost per volume, and machineability.\
-            The heatsink also has M5 screw mounts where I can screw it into a holder.';
-            break;
-        case 'npi':
-            textContent = 'I have been taught Spanish since 2nd grade, and my Spanish career extended to my Junior year in high school when I took AP Spanish. I am confident in my reading and writing ability and can speak and hear basic sentences.\
-            During the summer before my Senior year, I visited Greece and discovered the beauty of the Greek language. Over the summer, I started learning Greek, as I feel it is a great way to write and document my life.\
-            Είμαι σε βασικό επίπεδο, but it is a productive way that I like to spend my time.';
-            break;
-        case 'guitar':
-            textContent = 'I started playing guitar at the end of my Junior year and consistently practiced for at least an hour daily. Guitar became one of my favorite hobbies,\
-            as I am always finding new music and learning how to play it. --add link for my playing--';
-            // textContent = 'Here is a link to me playing: <a href="https://www.youtube.com/watch?v=3JZ_D9QJ9Zc" target="_blank">playing</a> things';
-            break;
-        default:
-            textContent = 'NaN';
-            break;
-    }
+    const textContent = textContentMap[imageAlt] || 'NaN';
+
     highlightedText.innerHTML = textContent;
-}
-
-function disableLowZIndexSelection() {
-    const allElements = document.querySelectorAll('*');
-
-    allElements.forEach(element => {
-        const zIndex = window.getComputedStyle(element).zIndex;
-
-        if (zIndex !== 'auto' && !isNaN(zIndex) && parseInt(zIndex) < 5) {
-            element.style.pointerEvents = 'none';
-        }
-    });
 }
 
 function xClick() {
@@ -145,5 +99,20 @@ function xClick() {
 
     darkOverlay.style.display = 'none';
     highlightGrid.style.display = 'none'; 
-    document.body.style.overflow = 'auto';     
+    document.body.style.overflow = 'auto'; 
+}
+
+function getTextContentMap() {
+    return {
+        'computer': 'For Christmas in middle school, I got an Alienware computer. It worked well for a few years but soon needed better equipment to run different programs. In my Sophomore year of high school, I took on the challenge of ordering parts and building a computer. I had a lot of trouble installing everything, but after around two weeks of trial and error, I had a fully functional PC equipped with powerful--but upgradeable--parts.',
+        'morse_code_parser': 'During my childhood, I was interested in cryptography. I learned Morse code and some other notable ciphers like Caesar, Pigpen, etc. I thought it would be fun to communicate in Morse code with my friends, so I designed and programmed a circuit using an Arduino that could do it. The device is simple: it uses a button connected to an analog input on the Arduino to detect a press. It then processes these inputs with timing logic to distinguish between dots and dashes, mapping them to letters using a dictionary and printing the corresponding characters.',
+        'better_emp': 'After a year since I made it, I needed to build a better EMP gun. My friend came over and gave me an old Nerf gun to use. Instead of using a puny bug zapper to generate the pulses, I used a dedicated high-voltage generator that could provide much stronger pulses. The device uses a coil with more windings, a better battery, and a more stable spark gap that does not misalign over time.',
+        'green_fire': 'Another passion of mine is chemistry. I saw a video of someone making \'green fire\' online and felt I had to try it. The reaction uses methanol and boric acid to form trimethyl borate and water: 3CH3OH + B(OH)3 -> B(OCH3)3 + 3H2O. The result is a stable (but flammable) liquid that, when lit, makes a very dim green fire.',
+        'homemade_pcb': 'My CNC machine not only mills fine-detail products on a variety of materials but also fabricates printed circuit boards (PCBs). A project I worked on called the Rabbler used a custom-designed circuit board. I was able to successfully mill this board with tolerances of less than 0.05mm. I scavenged a UV Curing device and wired it with my bench power supply to harden a finishing layer on top of the copper, which makes it easier to solder and gives the board its green color.',
+        'laser_heatsink': 'My laser diode is very inefficient. Around half of the total energy supplied to the laser is emitted as heat. Because of this, after only 20 seconds, the laser starts to burn up and is dangerously hot. To slow the laser\'s increase in temperature, I designed a custom heatsink to fit it. I milled the heatsink on my CNC machine out of aluminum because of its heat transfer, thermal capacity, cost per volume, and machineability. The heatsink also has M5 screw mounts where I can screw it into a holder.',
+        'npi': 'I have been taught Spanish since 2nd grade, and my Spanish career extended to my Junior year in high school when I took AP Spanish. I am confident in my reading and writing ability and can speak and hear basic sentences. During the summer before my Senior year, I visited Greece and discovered the beauty of the Greek language. Over the summer, I started learning Greek, as I feel it is a great way to write and document my life. Είμαι σε βασικό επίπεδο, but it is a productive way that I like to spend my time.',
+        'guitar': 'I started playing guitar at the end of my Junior year and consistently practiced for at least an hour daily. Guitar became one of my favorite hobbies, as I am always finding new music and learning how to play it. --add link for my playing--',
+        'rabbler': 'On a show, I saw a device that could obscure voices recorded by a bug by using random static on all frequencies louder than the voice. I looked up the device online only to find that they cost hundreds of dollars. Since the concept was simple enough, I built it for much cheaper. With some help, I wrote code in C that uses the logic <a href="https://en.wikipedia.org/wiki/Linear-feedback_shift_register" target="_blank">here</a> to make pseudorandom noise. I designed a circuit board and then installed the components on it. It worked, but I still need to create a case for it and use a stronger speaker.',
+        'game': 'game'
+    };
 }
