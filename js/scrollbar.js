@@ -1,4 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
+    if (window.matchMedia("(max-width: 576px)").matches) {
+        return;
+    }
+
     const sections = document.querySelectorAll('.grid-heading');
     const scrollbar = document.getElementById('custom-scrollbar');
 

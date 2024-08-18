@@ -6,7 +6,6 @@ document.addEventListener('DOMContentLoaded', function() {
         const x = document.querySelector('.highlight-grid .x');
         if (x) {
             x.addEventListener('click', function() {
-                console.log('x clicked'); // Debugging: Check if the event listener is triggered
                 xClick();
             });
         }
@@ -18,31 +17,29 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function adjustTextHeight() {
-        const otherGridItems = document.querySelectorAll('.other-grid .grid-item');
+        const highlightedImage = document.querySelector('.highlighted-image');
+        const highlightedText = document.querySelector('.highlighted-text');
 
-        otherGridItems.forEach(item => {
-            const img = item.querySelector('img');
-            const textContents = item.querySelectorAll('.text-content');
+        if (highlightedImage && highlightedText) {
+            highlightedImage.addEventListener('load', function() {
+                const imageHeight  = highlightedImage.offsetHeight;
+                highlightedText.style.maxHeight = imageHeight + 'px';
+                highlightedText.style.overflowY = 'auto';
+            });
 
-            if (img && textContents.length > 0) {
-                textContents.forEach(textContent => {
-                    textContent.style.maxHeight = 'none'; // Reset before measuring
-                    if (textContent.scrollHeight > img.clientHeight) {
-                        textContent.style.maxHeight = img.clientHeight + 'px';
-                    }
-                });
+            if (highlightedImage.complete) {
+                highlightedImage.dispatchEvent(new Event('load'));
             }
-        });
+        }
     }
 
     adjustTextHeight();
 
     const imageAlt = getQueryParam('image');
-    console.log('Image alt from URL:', imageAlt);
 
     if (imageAlt) {
         applyStylesBasedOnImage(imageAlt);
-        showHighlightGrid(); // Show the grid and attach the listener to `.x` when an image is selected
+        showHighlightGrid();
     }
 
     const images = document.querySelectorAll('.other-grid img');
@@ -53,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const newUrl = '?image=' + imageAlt;
             history.pushState(null, '', newUrl);
             applyStylesBasedOnImage(imageAlt);
-            showHighlightGrid(); // Show the grid and attach the listener to `.x` after an image is clicked
+            showHighlightGrid();
 
             adjustTextHeight();
         });

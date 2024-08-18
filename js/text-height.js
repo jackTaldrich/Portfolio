@@ -1,4 +1,8 @@
 function adjustTextHeight() {
+    if (window.matchMedia("(max-width: 576px)").matches) {
+        return;
+    }
+
     const gridItems = document.querySelectorAll('.grid-item');
 
     gridItems.forEach(item => {
@@ -24,5 +28,7 @@ function adjustTextHeight() {
 document.addEventListener("DOMContentLoaded", function() {
     adjustTextHeight();
 
-    window.addEventListener('resize', adjustTextHeight);
+    window.addEventListener('resize', function() {
+        adjustTextHeight();
+    });
 });
