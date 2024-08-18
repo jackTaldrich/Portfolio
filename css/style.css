@@ -354,9 +354,10 @@ body, #custom-scrollbar {
 
 .x {
     position: fixed;
-    top: 10px;
-    left: 10px;
-    width: 5vw;
+    top: 0;
+    right: 0;
+    transform: translate(25%, -25%);
+    width: 3.5vw;
     height: auto;
     cursor: pointer;
     z-index: 12;
@@ -372,6 +373,11 @@ body, #custom-scrollbar {
         font-size: 20px;
         position: relative;
         left: 6vw;
+    }
+
+    #start {
+        top: auto;
+        bottom: 10vh;
     }
 
     .portfolio-grid img {
