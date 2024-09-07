@@ -329,6 +329,7 @@ body, #custom-scrollbar {
     transform: translate(-50%, -50%);
     width: 90vw;
     height: auto;
+    max-height: 90vh;
     z-index: 10;
     background-color: #e5e5e5;
     padding: 20px;
@@ -350,7 +351,7 @@ body, #custom-scrollbar {
     padding: 0;
     z-index: 11;
     text-align: left;
-    font-size: 1.5vw;
+    font-size: 2vw;
     line-height: 1.6;
 }
 
@@ -539,10 +540,10 @@ body, #custom-scrollbar {
     }
 }
 
-@media (max-height: 826px) {
+@media (max-height: 826px) and (max-width: 576px) {
     .highlighted-image {
-        width: 60vw !important;
-        height: 60vw !important;
+        width: 60vw;
+        height: 60vw;
     }
 
     .highlighted-text {
