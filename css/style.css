@@ -118,7 +118,7 @@ button {
   font-family: "Montserrat", sans-serif;
   font-size: 16px;
   color: #fff;
-  background-color: #56445d;
+  background-color: var(--emphasis);
   border: none;
   border-radius: 5px;
   padding: 10px 20px;
