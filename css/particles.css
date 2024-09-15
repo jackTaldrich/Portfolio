@@ -1,0 +1,49 @@
+body {
+    background-color: #0766AD;    /* ----------------------------------- BACKGROUND COLOR BG ----------------------------------- */
+}
+
+.wrapper {
+	overflow: hidden;
+	background: #000;
+}
+
+/* ------------------------  particle background ----------------------------- */
+/* h2 {
+	color: #fff;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	font-family: bebas neue;
+	font-size: 65px;
+	z-index: 1000;
+	text-align: center;
+} */
+.boxes {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	pointer-events: none;
+}
+.particle {
+	position: fixed;
+	width: 10px;
+	height: 10px;
+	background-color: #29ADB2;                   /* ----------------------------------- PARTICLE COLOR ----------------------------------- */
+	animation: moveParticle linear infinite;
+	pointer-events: none;
+}
+@keyframes moveParticle {
+	0% {
+		transform: translateY(0) translateX(0);
+		opacity: 1;
+	}
+	100% {
+		transform: translateY(-100vh) translateX(calc(-100vw + 100%));
+		opacity: 0;
+	}
+}
+
+/* the above is for background */
