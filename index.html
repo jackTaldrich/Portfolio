@@ -15,30 +15,7 @@
         <div class="boxes"></div>
     </div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-        const particleContainer = document.querySelector('.boxes');
-
-        const createParticle = () => {
-            const particle = document.createElement('div');
-            particle.className = 'particle';
-            particle.style.left = Math.random() * window.innerWidth + 'px';
-            particle.style.top = Math.random() * window.innerHeight + 'px';
-            particle.style.animationDuration = Math.random() * 2 + 1 + 's';
-            particleContainer.appendChild(particle);
-
-            particle.addEventListener('animationend', () => {
-            particle.remove();
-            });
-        };
-
-        const spawnParticles = () => {
-            setInterval(createParticle, 500);
-        };
-
-        spawnParticles();
-        });
-    </script>
+    <script src="js/bgParticles.js"></script>
 
 <div class="container">
     <div id="hero" class="fade-in">
@@ -52,6 +29,11 @@
     <div id="blurb" class="fade-in">
       <h2 >
         I have been working on projects for a few years now and this is where I keep the interesting ones.<br />
+      </h2>
+    </div>
+    
+    <div id="blurb-2" class="fade-in">
+      <h2>
         Featured here are some of my handpicked favorites, with many more to come.
       </h2>
     </div>
