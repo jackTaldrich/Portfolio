@@ -11,6 +11,35 @@
   </head>
 
 <body>
+    <div class="wrapper">
+        <div class="boxes"></div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+        const particleContainer = document.querySelector('.boxes');
+
+        const createParticle = () => {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = Math.random() * window.innerWidth + 'px';
+            particle.style.top = Math.random() * window.innerHeight + 'px';
+            particle.style.animationDuration = Math.random() * 2 + 1 + 's';
+            particleContainer.appendChild(particle);
+
+            particle.addEventListener('animationend', () => {
+            particle.remove();
+            });
+        };
+
+        const spawnParticles = () => {
+            setInterval(createParticle, 500);
+        };
+
+        spawnParticles();
+        });
+    </script>
+
 <div class="container">
     <div id="hero" class="fade-in">
       <h1>Hello, I'm Jack.</h1>
@@ -35,7 +64,7 @@
     
     <div id="date" class="fade-in">
       <h3 >
-        June 16th 2022 ~&nbsp;<span >Present</span>
+        June 16th 2022 -&nbsp;<span >Present</span>
       </h3>
     </div>
   </div>
