@@ -2,12 +2,21 @@
   --base1: #8fbc94;
   --base2: #548687;
   --emphasis: #56445d;
-  --var1: #6da34d;
+  --var1: #C5E898;
   --var2: #c5e99b;
   --gold: #f2cc8f;
   --lesser-white: #f9f9f9;
   --text-color: #333;
 }
+
+.electrolize-regular {
+  font-family: "Electrolize", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+
 
 .base1 {
   color: var(--base1);
@@ -229,9 +238,10 @@ body,
   font-family: "Montserrat", sans-serif;
   font-size: 100px;
   font-weight: 600;
-  color: #6da34d;
+  color: #C5E898;
   margin: 40px 0 0;
   text-align: center;
+  font-family: "Electrolize", sans-serif;
 }
 
 .grid-item {
@@ -622,4 +632,8 @@ body,
   .highlighted-text {
     font-size: 0.8rem;
   }
+}
+
+body {
+  font-family: "Electrolize", sans-serif;
 }

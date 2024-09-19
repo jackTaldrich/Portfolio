@@ -7,18 +7,7 @@ body {
 	background: #000;
 }
 
-/* ------------------------  particle background ----------------------------- */
-/* h2 {
-	color: #fff;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	font-family: bebas neue;
-	font-size: 65px;
-	z-index: 1000;
-	text-align: center;
-} */
+/* ------------------------  particle background css----------------------------- */
 .boxes {
 	position: fixed;
 	top: 0;

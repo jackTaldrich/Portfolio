@@ -12,7 +12,7 @@
 
 
 body {
-    background-color: #0766AD;    /* ----------------------------------- BACKGROUND COLOR BG ----------------------------------- */
+    background-color: #2b216d;    /* ----------------------------------- BACKGROUND COLOR BG ----------------------------------- */
 }
 
 .wrapper {
@@ -44,7 +44,7 @@ body {
 	position: fixed;
 	width: 10px;
 	height: 10px;
-	background-color: #29ADB2;                   /* ----------------------------------- PARTICLE COLOR ----------------------------------- */
+	background-color: #ffd700;                   /* ----------------------------------- PARTICLE COLOR ----------------------------------- */
 	animation: moveParticle linear infinite;
 	pointer-events: none;
 }
@@ -62,26 +62,27 @@ body {
 /* the above is for background */
 
 .container {
-    color: #C5E898;     /* ----------------------------------- TEXT COLOR  ----------------------------------- */
+    color: #ceaf00;     /* ----------------------------------- TEXT COLOR  ----------------------------------- */
     display: flex;
     justify-content: center;
     flex-direction: column;
     font-family: "Electrolize", sans-serif;
     /* text-shadow: 0 0 8px #a5bc87;  */    /* this gives a glowing effect  */
-    text-shadow:1px 1px 2px black 0 0 8px #a5bc87;
+    
 }
 
 div#hero {
     /* border: 2px solid black; */
     text-align: center;
     font-size: 2.5em;
+    text-shadow:1px 1px 2px black, 0 0 8px #000000;
 }
 
 #sub-hero {
     /* border: 2px solid green; */
     text-align: center;
     font-size: 1.5em;
-    color: #C5E898; 
+    color: #e6cc38; 
     
 }
 
@@ -89,7 +90,7 @@ div#hero {
     /* border: 2px solid blue; */
     text-align: center;
     font-size: 1em;
-    color: #C5E898; 
+    color: #e6cc38; 
     
 }
 
@@ -97,7 +98,7 @@ div#hero {
     /* border: 2px solid blue; */
     text-align: center;
     font-size: 1em;
-    color: #C5E898; 
+    color: #e6cc38; 
     
 }
 
@@ -112,7 +113,7 @@ div#cont-btn {
     text-align: center;
     font-size: 1em;
     padding: 20px;
-    color: #C5E898; 
+    color: #e6cc38; 
 }
 
 .fade-in {
@@ -165,7 +166,7 @@ div#cont-btn {
 
 /* From Uiverse.io by adamgiebl */ 
 button {
-    --green: #8dfa8b;  /* ----------------------------------- BUTTON COLOR BTN ----------------------------------- */
+    --green: #8ce638;  /* ----------------------------------- BUTTON COLOR BTN ----------------------------------- */
     font-size: 15px;
     padding: 0.7em 2.7em;
     letter-spacing: 0.06em;
@@ -183,7 +184,7 @@ button {
   }
   
   button:hover {
-    color: #8dfa8b;
+    color: #8ce638;
     box-shadow: inset 0 0 10px rgba(197, 232, 152, 0.6), 0 0 9px 3px rgba(197, 232, 152, 0.2);
   }
   
