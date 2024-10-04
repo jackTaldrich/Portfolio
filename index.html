@@ -1,84 +1,68 @@
-<!-- Color palette:
-6DA34D base 1
-56445D emphasis
-548687 variation 1 of base 1
-8FBC94 base 2
-C5E99B variation 2 of base 1
--->
-
-<!-- 
-I want a button that you click after reading the intro stuff that shows the first thing and scrolls you to it
--->
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portfolio</title>
-    <!-- <script src="js/nophone.js"></script> -->
-
-    <!-- Bootstrap CSS -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
-      crossorigin="anonymous"
-    />
-
-    <!-- Bootstrap JS -->
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-      crossorigin="anonymous"
-    ></script>
-
-    <!-- Fancy font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Allura&display=swap"
-      rel="stylesheet"
-    />
-
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/style.css" />
-
-    <!-- Favicon -->
-    <link rel="icon" href="images/favicon.png" type="image/x-icon" />
-
-    <!-- 404 redirect script -->
-    <script src="js/404redirect.js" defer></script>
-
-    <!-- Prevent scrolling and hide scrollbar for this page only -->
-    <style>
-      body {
-        overflow: hidden;
-        height: 100%;
-        margin: 0;
-      }
-    </style>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Electrolize&display=swap" rel="stylesheet">
   </head>
-  <body>
-    <h1 class="text-center var1" id="title">My name is Jack</h1>
-    <div class="welcome">
-      <h2 class="base2" id="subtitle">Welcome to my portfolio!</h2>
-      <h5 class="text-center">
-        I have been working on projects for a few years now and this is where I
-        keep the interesting ones.<br />
-        Featured here are some of my handpicked favorites, with many more to
-        come.
-      </h5>
-      <h6 class="text-center" id="dates">
-        June 16th 2022 ~&nbsp;<span class="base2">Present</span>
-      </h6>
-      <hr />
-      <button
-        id="start"
-        onclick="window.location.href = 'html/portfolio.html';"
-      >
-        Continue
-      </button>
+<body>
+    <!-- PARTICLES BACKGROUND -->
+    <!--  -->
+    <div class="wrapper">
+      <div class="boxes"></div>
     </div>
-  </body>
+    <script src="js/bgParticles.js"></script>
+    <!--  -->
+    <!-- PARTICLES BACKGROUND -->
+
+
+  <!-- CONTAINER BEGINS -->
+  <div class="container">
+    <!-- HERO TEXT -->
+      <div id="hero" class="fade-in">
+        <h1>Hello, I'm Jack.</h1>
+      </div>
+    <!-- HERO TEXT -->
+
+    <!-- SUB HERO TEXT -->
+      <div id="sub-hero" class="fade-in">
+        <h2>Welcome to my portfolio!</h2>
+      </div>
+    <!-- SUB HERO TEXT -->
+
+    <!-- BLURB TEXT -->
+      <div id="blurb" class="fade-in">
+        <h2 >
+          I have been working on projects for a few years now and this is where I keep the interesting ones.<br/>
+        </h2>
+        <h2>
+          Featured here are some of my handpicked favorites, with many more to come.
+        </h2>
+      </div>
+    <!-- BLURB TEXT -->
+
+    <!-- FOOTER -->
+    <div id="date" class="fade-in">
+      <h3>
+        June 16th 2022 -&nbsp;<span >Present</span>
+      </h3>
+    </div>
+    <!-- FOOTER -->
+
+    <!-- BUTTON AREA -->
+      <div id="cont-btn" class="fade-in">
+        <button id="start" onclick="window.location.href = 'html/portfolio.html';"> Continue </button>
+      </div>
+    <!-- BUTTON AREA -->
+
+    
+  
+  </div> 
+  <!-- CONTAINER ENDS -->
+  
+</body>
 </html>

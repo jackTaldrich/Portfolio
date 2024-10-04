@@ -1,0 +1,205 @@
+/* ------------------------  Importing fonts ----------------------------- */
+/* -------------------------------------------------------------------- */
+
+
+.electrolize-regular {
+    font-family: "Electrolize", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* ------------------------  Importing fonts ----------------------------- */
+
+
+body {
+    background-color: #2b216d;    /* ----------------------------------- BACKGROUND COLOR BG ----------------------------------- */
+}
+
+.wrapper {
+	overflow: hidden;
+	background: #000;
+}
+
+/* ------------------------  particle background ----------------------------- */
+/* h2 {
+	color: #fff;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	font-family: bebas neue;
+	font-size: 65px;
+	z-index: 1000;
+	text-align: center;
+} */
+.boxes {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	pointer-events: none;
+}
+.particle {
+	position: fixed;
+	width: 10px;
+	height: 10px;
+	background-color: #ffd700;                   /* ----------------------------------- PARTICLE COLOR ----------------------------------- */
+	animation: moveParticle linear infinite;
+	pointer-events: none;
+}
+@keyframes moveParticle {
+	0% {
+		transform: translateY(0) translateX(0);
+		opacity: 1;
+	}
+	100% {
+		transform: translateY(-100vh) translateX(calc(-100vw + 100%));
+		opacity: 0;
+	}
+}
+
+/* the above is for background */
+
+.container {
+    color: #ceaf00;     /* ----------------------------------- TEXT COLOR  ----------------------------------- */
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    font-family: "Electrolize", sans-serif;
+    /* text-shadow: 0 0 8px #a5bc87;  */    /* this gives a glowing effect  */
+    
+}
+
+div#hero {
+    /* border: 2px solid black; */
+    text-align: center;
+    font-size: 2.5em;
+    text-shadow:1px 1px 2px black, 0 0 8px #000000;
+}
+
+#sub-hero {
+    /* border: 2px solid green; */
+    text-align: center;
+    font-size: 1.5em;
+    color: #e6cc38; 
+    
+}
+
+#blurb {
+    /* border: 2px solid blue; */
+    text-align: center;
+    font-size: 1em;
+    color: #e6cc38; 
+    
+}
+
+#blurb-2 {
+    /* border: 2px solid blue; */
+    text-align: center;
+    font-size: 1em;
+    color: #e6cc38; 
+    
+}
+
+div#cont-btn {
+    align-self: center;
+    font-size: 1em;
+    padding: 25px;
+}
+
+#date {
+    /* border: 2px solid black; */
+    text-align: center;
+    font-size: 1em;
+    padding: 20px;
+    color: #e6cc38; 
+}
+
+.fade-in {
+    opacity: 0;
+    visibility: hidden;
+    animation: fadeIn 1s ease-in forwards; /* 1s fade-in, forwards keeps it visible */
+}
+
+.fade-in:nth-child(1) {
+    animation-delay: 0s; /* First element fades in immediately */
+}
+
+.fade-in:nth-child(2) {
+    animation-delay: 1s; /* Second element fades in 1s after the first */
+}
+
+.fade-in:nth-child(3) {
+    animation-delay: 2s; /* Third element fades in 2s after the first */
+}
+
+.fade-in:nth-child(4) {
+    animation-delay: 3s; /* Fourth element fades in 3s after the first */
+}
+
+.fade-in:nth-child(5) {
+    animation-delay: 4s; /* Fourth element fades in 4s after the first */
+}
+
+.fade-in:nth-child(6) {
+    animation-delay: 5s; /* Fourth element fades in 5s after the first */
+}
+
+.fade-in:nth-child(7) {
+    animation-delay: 6s; /* Fourth element fades in 5s after the first */
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        visibility: hidden;
+    }
+    100% {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+
+/* This is all for a button, let's see what happens */
+
+/* From Uiverse.io by adamgiebl */ 
+button {
+    --green: #8ce638;  /* ----------------------------------- BUTTON COLOR BTN ----------------------------------- */
+    font-size: 15px;
+    padding: 0.7em 2.7em;
+    letter-spacing: 0.06em;
+    position: relative;
+    font-family: inherit;
+    font-size:x-large;
+    border-radius: 0.6em;
+    overflow: hidden;
+    transition: all 0.3s;
+    line-height: 1.4em;
+    border: 2px solid var(--green);
+    background: linear-gradient(to right, rgba(197, 232, 152, 0.1) 1%, transparent 40%,transparent 60% , rgba(197, 232, 152, 0.1) 100%);
+    color: var(--green);
+    box-shadow: inset 0 0 10px rgba(197, 232, 152, 0.4), 0 0 9px 3px rgba(197, 232, 152, 0.1);
+  }
+  
+  button:hover {
+    color: #8ce638;
+    box-shadow: inset 0 0 10px rgba(197, 232, 152, 0.6), 0 0 9px 3px rgba(197, 232, 152, 0.2);
+  }
+  
+  button:before {
+    content: "";
+    position: absolute;
+    left: -4em;
+    width: 4em;
+    height: 100%;
+    top: 0;
+    transition: transform .4s ease-in-out;
+    background: linear-gradient(to right, transparent 1%, rgba(197, 232, 152, 0.1) 40%,rgba(197, 232, 152, 0.1) 60% , transparent 100%);
+  }
+  
+  button:hover:before {
+    transform: translateX(15em);
+  }
+/*  */

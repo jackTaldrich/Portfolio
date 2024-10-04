@@ -32,8 +32,13 @@ C5E99B variation 2 of base 1
       crossorigin="anonymous"
     ></script>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Electrolize&display=swap" rel="stylesheet">
+
     <!-- Custom CSS -->
     <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/particles.css">
 
     <!-- Favicon -->
     <link rel="icon" href="../images/favicon.png" type="image/x-icon" />
@@ -52,11 +57,20 @@ C5E99B variation 2 of base 1
 
     <!-- Custom scrollbar -->
     <script src="../js/scrollbar.js" defer></script>
+
   </head>
 
   <body>
     <div id="dark-overlay"></div>
     <!-- grids work better than relative positioning -->
+
+  <!-- PARTICLES BACKGROUND DIV -->
+  <div class="wrapper">
+      <div class="boxes"></div>
+  </div>
+  <script src="../js/bgParticles.js"></script>
+  <!-- PARTICLES BACKGROUND DIV -->
+  
     <div class="portfolio-grid">
       <h1 class="grid-heading">EMP Gun</h1>
       <hr class="basic" />
