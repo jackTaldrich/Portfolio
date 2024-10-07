@@ -70,6 +70,7 @@ function applyStylesBasedOnImage(imageAlt) {
   const highlightGrid = document.querySelector(".highlight-grid");
   const highlightedImage = document.querySelector(".highlighted-image");
   const highlightedText = document.querySelector(".highlighted-text");
+  const customScrollbar = document.querySelector("#custom-scrollbar");
   const textContentMap = getTextContentMap();
 
   if (
@@ -77,6 +78,7 @@ function applyStylesBasedOnImage(imageAlt) {
     !highlightGrid ||
     !highlightedImage ||
     !highlightedText ||
+    !customScrollbar ||
     !textContentMap
   ) {
     return;
@@ -92,6 +94,7 @@ function applyStylesBasedOnImage(imageAlt) {
   document.body.style.overflow = "hidden";
   darkOverlay.style.display = "block";
   highlightGrid.style.display = "grid";
+  customScrollbar.style.display = "hidden";
 
   highlightedImage.src = imgElement.src;
   highlightedImage.alt = imageAlt;
@@ -111,6 +114,7 @@ function xClick() {
 
   darkOverlay.style.display = "none";
   highlightGrid.style.display = "none";
+  customScrollbar.style.display = "block";
   document.body.style.overflow = "auto";
 }
 
