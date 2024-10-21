@@ -94,7 +94,6 @@ function applyStylesBasedOnImage(imageAlt) {
   document.body.style.overflow = "hidden";
   darkOverlay.style.display = "block";
   highlightGrid.style.display = "grid";
-  customScrollbar.style.display = "hidden";
 
   highlightedImage.src = imgElement.src;
   highlightedImage.alt = imageAlt;
@@ -114,7 +113,6 @@ function xClick() {
 
   darkOverlay.style.display = "none";
   highlightGrid.style.display = "none";
-  customScrollbar.style.display = "block";
   document.body.style.overflow = "auto";
 }
 
